@@ -1,0 +1,38 @@
+---
+default_install_hook_types:
+  - pre-commit
+
+default_stages:
+  - pre-commit
+
+fail_fast: true
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+        stages:
+          - pre-commit
+      - id: check-added-large-files
+        stages:
+          - pre-commit
+      - id: end-of-file-fixer
+        stages:
+          - pre-commit
+      - id: detect-private-key
+        stages:
+          - pre-commit
+      - id: no-commit-to-branch
+        stages:
+          - pre-commit
+
+  - repo: https://github.com/JohnnyMorganz/StyLua
+    rev: v0.20.0
+    hooks:
+      - id: stylua-system
+
+  - repo: https://github.com/lyz-code/yamlfix/
+    rev: 1.16.0
+    hooks:
+      - id: yamlfix
