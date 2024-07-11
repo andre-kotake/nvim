@@ -28,9 +28,9 @@ return {
         ["mini.cursorword"] = true,
       },
     },
-    init = function()
-      vim.cmd.colorscheme("dracula")
-    end,
+    -- init = function()
+    --   vim.cmd.colorscheme("dracula")
+    -- end,
   },
   {
     "LazyVim/LazyVim",

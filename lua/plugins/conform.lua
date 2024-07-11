@@ -16,10 +16,10 @@ return {
         },
 
         yamlfix = {
-          prepend_args = {
-            "--config-file",
-            K_Global.util.paths.config .. "yamlfix/config.toml",
-          },
+          -- prepend_args = {
+          --   "--config-file",
+          --   K_Global.util.paths.config .. "yamlfix/config.toml",
+          -- },
           --  env = {
           --    YAMLFIX_WHITELINES = "2",
           --    YAMLFIX_SECTION_WHITELINES = "1",

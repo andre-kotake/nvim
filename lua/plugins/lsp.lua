@@ -5,6 +5,7 @@ return {
       ---@type vim.diagnostic.Opts
       diagnostics = {
         update_in_insert = true,
+        virtual_text = false,
       },
       servers = {
         lua_ls = {
@@ -40,6 +41,16 @@ return {
         taplo = {},
         yamlls = {},
       },
+    },
+  },
+  {
+    "sontungexpt/better-diagnostic-virtual-text",
+    event = "LspAttach",
+    opts = {
+      ui = {
+        above = true,
+      },
+      inline = false,
     },
   },
 }
