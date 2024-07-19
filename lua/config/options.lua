@@ -3,7 +3,7 @@
 -- Add any additional options here
 
 vim.opt.cmdheight = 0 -- Hide command line unless needed.
+
 vim.opt.guicursor = "n:blinkon200,i-ci-ve:ver25" -- Enable cursor blink.
+
 vim.opt.colorcolumn = "80" -- PEP8 like character limit vertical bar.
-vim.opt.scrolloff = 1000 -- Number of lines to leave before/after the cursor when scrolling. Setting a high value keep the cursor centered.
-vim.opt.sidescrolloff = 8 -- Same but for side scrolling.
