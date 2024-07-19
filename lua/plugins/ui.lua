@@ -17,24 +17,45 @@ return {
   },
   {
     "folke/noice.nvim",
-    enabled = false,
+    -- enabled = false,
     opts = {
       presets = {
         lsp_doc_border = true,
       },
+
       views = {
+        cmdline_popup = {
+          size = {
+            width = "80%",
+          },
+        },
         hover = {
           size = {
             max_width = math.floor(vim.o.columns * 0.90),
           },
         },
       },
+
+      routes = {
+        {
+          filter = {
+            event = "lsp",
+            kind = "progress",
+            cond = function(message)
+              local client = vim.tbl_get(message.opts, "progress", "client")
+              return client == "lua_ls"
+            end,
+          },
+          opts = { skip = true },
+        },
+      },
     },
   },
+
   {
     "rcarriga/nvim-notify",
     opts = {
-      timeout = 8000,
+      timeout = 4000,
       max_width = function()
         return math.floor(vim.o.columns * 0.90)
       end,

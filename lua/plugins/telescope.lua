@@ -15,8 +15,12 @@ return {
     },
     opts = {
       defaults = {
+        path_display = { "truncate" },
+        sorting_strategy = "ascending",
         layout_config = {
           prompt_position = "top",
+          width = 0.99,
+          height = 0.99,
         },
         winblend = 0,
       },

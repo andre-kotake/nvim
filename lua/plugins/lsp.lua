@@ -20,6 +20,8 @@ return {
 
         float = {
           border = _border[0],
+          style = "minimal",
+          header = "",
           source = true,
         },
       },
