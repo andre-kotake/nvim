@@ -14,8 +14,8 @@ maps.n["<leader>xz"] = {
   desc = "Line Diagnostics",
 }
 
-maps.n["<leader>/"] = { "gcc", remap = false, desc = "Toggle comment line" }
-maps.x["<leader>/"] = { "gc", remap = false, desc = "Toggle comment" }
+maps.n["<leader>/"] = { "gcc", remap = true, desc = "Toggle comment line" }
+maps.x["<leader>/"] = { "gc", remap = true, desc = "Toggle comment" }
 
 utils.set_mappings(maps)
 

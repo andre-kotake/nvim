@@ -1,5 +1,3 @@
-local lua_packages = { "lua-language-server", "stylua" }
-
 return {
   {
     "williamboman/mason.nvim",
@@ -33,7 +31,6 @@ return {
     },
     init = function()
       if K_Global.is_android then
-        LazyVim.info("foda", {})
         -- registry:once(
         --   "package:install:failed",
         --   vim.schedule_wrap(function(pkg, handle)

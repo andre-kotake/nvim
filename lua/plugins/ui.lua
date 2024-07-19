@@ -22,7 +22,6 @@ return {
       presets = {
         lsp_doc_border = true,
       },
-
       views = {
         cmdline_popup = {
           size = {
@@ -64,7 +63,7 @@ return {
       max_width = function()
         return math.floor(vim.o.columns * 0.90)
       end,
-      render = "wrapped-compact",
+      -- render = "wrapped-compact",
     },
   },
 }

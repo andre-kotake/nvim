@@ -37,10 +37,29 @@ if false then
   end)
 end
 
-vim.api.nvim_create_autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("notify_wrap", { clear = true }),
-  pattern = { "notify" },
+local autocmd = vim.api.nvim_create_autocmd
+
+autocmd("FileType", {
+  desc = "Automatically toggle wrap on notify windows.",
+  pattern = {
+    "notify",
+  },
   callback = function()
     vim.opt_local.wrap = true
+  end,
+})
+
+-- autocmd("LazyFile", {
+--   desc = "Show color column.",
+--   callback = function()
+--     vim.opt_local.colorcolumn = "80"
+--   end,
+-- })
+
+-- Close all notifications on BufWritePre.
+autocmd("BufWritePre", {
+  desc = "Close all notifications on BufWritePre",
+  callback = function()
+    require("notify").dismiss({ pending = true, silent = true })
   end,
 })
