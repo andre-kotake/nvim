@@ -5,12 +5,15 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        "lua-language-server",
         "stylua",
 
+        "bash-language-server",
         "shellcheck",
         "shellharden",
         "shfmt",
 
+        "yaml-language-server",
         "yamlfix",
         "yamllint",
       },

@@ -36,3 +36,11 @@ if false then
     })
   end)
 end
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("notify_wrap", { clear = true }),
+  pattern = { "notify" },
+  callback = function()
+    vim.opt_local.wrap = true
+  end,
+})

@@ -1,5 +1,5 @@
 ---@meta _
 
 ---@class K_Global
----@field util global.util
+---@field path global.util.path
 ---@field is_android boolean

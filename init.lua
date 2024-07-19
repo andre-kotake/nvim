@@ -1,6 +1,6 @@
 ---@type K_Global
 _G.K_Global = {
-  util = require("util"),
+  path = require("util.path"),
   is_android = vim.fn.isdirectory("/data") == 1,
 }
 
