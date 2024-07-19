@@ -29,6 +29,11 @@ return {
             width = "80%",
           },
         },
+        cmdline_popupmenu = {
+          size = {
+            width = "80%",
+          },
+        },
         hover = {
           size = {
             max_width = math.floor(vim.o.columns * 0.90),
@@ -59,6 +64,7 @@ return {
       max_width = function()
         return math.floor(vim.o.columns * 0.90)
       end,
+      render = "wrapped-compact",
     },
   },
 }
