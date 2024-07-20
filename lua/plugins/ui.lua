@@ -1,4 +1,19 @@
 local view_max_width = math.floor(vim.o.columns * 0.90)
+
+local function get_msg_show_find_patterns()
+  -- Message patterns to skip.
+  local find_patterns = {
+    "more line",
+    "line less",
+    "fewer lines",
+    "clipboard: No provider.",
+  }
+
+  return vim.tbl_map(function(pattern)
+    return { find = pattern }
+  end, find_patterns)
+end
+
 return {
   {
     "akinsho/git-conflict.nvim",
@@ -46,6 +61,13 @@ return {
         },
       },
       routes = {
+        {
+          filter = {
+            event = "msg_show",
+            any = get_msg_show_find_patterns(),
+          },
+          opts = { skip = true },
+        },
         {
           filter = {
             event = "lsp",

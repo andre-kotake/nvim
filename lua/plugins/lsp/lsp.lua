@@ -7,6 +7,7 @@ return {
       { "williamboman/mason-lspconfig.nvim", enabled = false, config = function() end },
       {
         "sontungexpt/better-diagnostic-virtual-text",
+        enabled = false,
         opts = {
           inline = false,
         },
@@ -16,7 +17,7 @@ return {
       ---@type vim.diagnostic.Opts
       diagnostics = {
         -- update_in_insert = true,
-        virtual_text = false,
+        -- virtual_text = false,
 
         float = {
           border = _border[0],
