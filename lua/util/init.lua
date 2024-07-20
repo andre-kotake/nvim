@@ -329,4 +329,29 @@ function M.which_key_register()
   end
 end
 
+--- Set attributes for highlight, overwriting existing opts.
+--- Creates a new highlight group if it doesnt't exist.
+function M.set_hl_attributes(name, attributes)
+  local highlight = vim.api.nvim_get_hl(0, { name = name }) or {}
+
+  -- Merge new attributes with existing attributes
+  local hl = M.merge_tables(highlight, attributes)
+
+  vim.api.nvim_set_hl(0, name, hl)
+end
+
+--- Merge two tables, overwriting existing values from t1 with t2
+---@param t1 table Table to be overwritten.
+---@param t2 table Table to merge.
+function M.merge_tables(t1, t2)
+  for k, v in pairs(t2) do
+    if (type(v) == "table") and (type(t1[k] or false) == "table") then
+      M.merge_tables(t1[k], t2[k])
+    else
+      t1[k] = v
+    end
+  end
+  return t1
+end
+
 return M

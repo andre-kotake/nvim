@@ -7,7 +7,7 @@ return {
         "<leader>fP",
         function()
           require("telescope.builtin").find_files(require("telescope.themes").get_dropdown({
-            cwd = require("lazy.core.config").options.root,
+            cwd = require("lazy.core.config").options.root .. "/LazyVim",
           }))
         end,
         desc = "Find Plugin File",

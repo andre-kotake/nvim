@@ -26,12 +26,12 @@ return {
       views = {
         cmdline_popup = {
           size = {
-            width = "90%",
+            width = view_max_width,
           },
         },
         cmdline_popupmenu = {
           size = {
-            width = "90%",
+            width = view_max_width,
           },
         },
         confirm = {
@@ -45,7 +45,6 @@ return {
           },
         },
       },
-
       routes = {
         {
           filter = {
