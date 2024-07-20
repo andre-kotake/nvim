@@ -34,11 +34,11 @@ return {
             width = view_max_width,
           },
         },
-        confirm = {
-          size = {
-            max_width = view_max_width,
-          },
-        },
+        -- confirm = {
+        --   size = {
+        --     max_width = view_max_width,
+        --   },
+        -- },
         hover = {
           size = {
             max_width = view_max_width,
