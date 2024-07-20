@@ -1,3 +1,4 @@
+local view_max_width = math.floor(vim.o.columns * 0.90)
 return {
   {
     "akinsho/git-conflict.nvim",
@@ -25,17 +26,22 @@ return {
       views = {
         cmdline_popup = {
           size = {
-            width = "80%",
+            width = "90%",
           },
         },
         cmdline_popupmenu = {
           size = {
-            width = "80%",
+            width = "90%",
+          },
+        },
+        confirm = {
+          size = {
+            max_width = view_max_width,
           },
         },
         hover = {
           size = {
-            max_width = math.floor(vim.o.columns * 0.90),
+            max_width = view_max_width,
           },
         },
       },
@@ -60,10 +66,8 @@ return {
     "rcarriga/nvim-notify",
     opts = {
       timeout = 4000,
-      max_width = function()
-        return math.floor(vim.o.columns * 0.90)
-      end,
-      -- render = "wrapped-compact",
+      max_width = view_max_width,
+      render = "wrapped-compact",
     },
   },
 }

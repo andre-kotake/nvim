@@ -14,9 +14,15 @@ maps.n["<leader>xz"] = {
   desc = "Line Diagnostics",
 }
 
+maps.n[";"] = { ":", desc = "Enter Command Mode", silent = false }
+
 maps.n["<leader>/"] = { "gcc", remap = true, desc = "Toggle comment line" }
 maps.x["<leader>/"] = { "gc", remap = true, desc = "Toggle comment" }
 
-utils.set_mappings(maps)
+vim.keymap.set("n", ";", ":", { desc = "Enter Command Mode" })
+
+utils.set_mappings(maps, {
+  silent = true,
+})
 
 return M

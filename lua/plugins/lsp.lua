@@ -15,7 +15,7 @@ return {
     opts = {
       ---@type vim.diagnostic.Opts
       diagnostics = {
-        update_in_insert = true,
+        -- update_in_insert = true,
         virtual_text = false,
 
         float = {
