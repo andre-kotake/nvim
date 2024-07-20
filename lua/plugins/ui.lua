@@ -41,12 +41,12 @@ return {
       views = {
         cmdline_popup = {
           size = {
-            width = view_max_width,
+            width = "85%",
           },
         },
         cmdline_popupmenu = {
           size = {
-            width = view_max_width,
+            width = "85%",
           },
         },
         -- confirm = {

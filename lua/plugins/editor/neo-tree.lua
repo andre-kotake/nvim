@@ -1,4 +1,5 @@
-local get_icon = require("util").get_icon
+local set_hl_group = K_Lazy.set_hl_group
+local get_icon = K_Lazy.icons.get_icon
 
 return {
   "nvim-neo-tree/neo-tree.nvim",
@@ -16,13 +17,15 @@ return {
       {
         event = "neo_tree_buffer_enter",
         handler = function()
-          K_Utils.set_hl_attributes("Cursor", { blend = 100 })
+          -- Hide the cursor and show only line highlight when neo-tree is focused.
+          set_hl_group("Cursor", { blend = 100 })
         end,
       },
       {
         event = "neo_tree_buffer_leave",
         handler = function()
-          K_Utils.set_hl_attributes("Cursor", { blend = 0 })
+          -- Show the cursor when leaving neo-tree.
+          set_hl_group("Cursor", { blend = 0 })
         end,
       },
     },
@@ -45,6 +48,5 @@ return {
         },
       },
     },
-    enable_cursor_hijack = true,
   },
 }

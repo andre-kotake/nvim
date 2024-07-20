@@ -176,8 +176,9 @@ end
 ---@param plugin string The plugin to get options from
 ---@return table opts # The plugin options, or empty table if no plugin.
 function M.get_plugin_opts(plugin)
-  local lazy_config_avail, lazy_config = pcall(require, "lazy.core.config")
-  local lazy_plugin_avail, lazy_plugin = pcall(require, "lazy.core.plugin")
+  local lazy_config_avail, lazy_config = pcall(require, "config.lazy")
+  vim.print(lazy_config_avail)
+  local lazy_plugin_avail, lazy_plugin = pcall(require, "plugins")
   local opts = {}
   if lazy_config_avail and lazy_plugin_avail then
     local spec = lazy_config.spec.plugins[plugin]

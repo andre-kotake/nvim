@@ -28,6 +28,7 @@ return {
       },
 
       servers = {
+        lua_ls = {},
         bashls = { filetypes = { "sh", "bash" } },
         yamlls = {},
       },
