@@ -13,6 +13,33 @@ return {
           },
         },
       },
+      event_handlers = {
+        {
+          event = "neo_tree_buffer_enter",
+          handler = function()
+            vim.cmd("highlight! Cursor blend=100")
+          end,
+        },
+        {
+          event = "neo_tree_buffer_leave",
+          handler = function()
+            vim.cmd("highlight! Cursor guibg=#5f87af blend=0")
+          end,
+        },
+        {
+          event = "after_render",
+          handler = function(state)
+            if state.current_position == "left" or state.current_position == "right" then
+              vim.api.nvim_win_call(state.winid, function()
+                local str = require("neo-tree.ui.selector").get()
+                if str then
+                  _G.__cached_neo_tree_selector = str
+                end
+              end)
+            end
+          end,
+        },
+      },
       sources = { "filesystem", "buffers", "git_status" },
       source_selector = {
         winbar = true,

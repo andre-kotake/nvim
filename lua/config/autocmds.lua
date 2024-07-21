@@ -39,22 +39,37 @@ end
 
 local autocmd = vim.api.nvim_create_autocmd
 
-autocmd("FileType", {
-  desc = "Automatically toggle wrap on notify windows.",
-  pattern = {
-    "notify",
-  },
-  callback = function()
-    vim.opt_local.wrap = true
-  end,
-})
-
--- autocmd("LazyFile", {
---   desc = "Show color column.",
+-- autocmd("FileType", {
+--   desc = "Automatically toggle wrap on notify windows.",
+--   pattern = {
+--     "notify",
+--   },
 --   callback = function()
---     vim.opt_local.colorcolumn = "80"
+--     vim.opt_local.wrap = true
 --   end,
 -- })
+
+autocmd("FileType", {
+  pattern = {
+    "PlenaryTestPopup",
+    "help",
+    "lspinfo",
+    "notify",
+    "qf",
+    "spectre_panel",
+    "startuptime",
+    "tsplayground",
+    "neotest-output",
+    "checkhealth",
+    "neotest-summary",
+    "neotest-output-panel",
+    "dbout",
+    "gitsigns.blame",
+  },
+  callback = function()
+    vim.opt.colorcolumn = "0"
+  end,
+})
 
 -- Close all notifications on BufWritePre.
 autocmd("BufWritePre", {

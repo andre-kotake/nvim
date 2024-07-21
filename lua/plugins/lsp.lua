@@ -15,7 +15,7 @@ return {
     opts = {
       ---@type vim.diagnostic.Opts
       diagnostics = {
-        update_in_insert = true,
+        update_in_insert = false,
         virtual_text = false,
 
         float = {
@@ -27,6 +27,7 @@ return {
       },
 
       servers = {
+        lua_ls = {},
         bashls = { filetypes = { "sh", "bash" } },
         yamlls = {},
       },

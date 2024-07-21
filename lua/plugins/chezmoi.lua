@@ -41,13 +41,6 @@ return {
   {
     "xvzc/chezmoi.nvim",
     lazy = true,
-    keys = {
-      {
-        "<leader>sz",
-        pick_chezmoi,
-        desc = "Chezmoi",
-      },
-    },
     opts = {
       edit = {
         watch = true,
