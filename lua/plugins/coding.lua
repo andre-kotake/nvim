@@ -87,6 +87,7 @@ return {
             elseif #cmp.get_entries() == 1 then
               cmp.confirm({
                 select = true,
+                behavior = cmp.ConfirmBehavior.Replace,
               })
             end
           else
