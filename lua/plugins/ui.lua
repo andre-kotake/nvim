@@ -7,6 +7,7 @@ local function get_msg_show_find_patterns()
     "line less",
     "fewer lines",
     "clipboard: No provider.",
+    "change; before",
   }
 
   return vim.tbl_map(function(pattern)

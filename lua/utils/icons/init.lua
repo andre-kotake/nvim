@@ -1,10 +1,10 @@
----@class k_lazy.utils.icons
+--- @class k_lazy.utils.icons
 local M = {}
 
 --- Taken from NormalNvim: https://github.com/NormalNvim/NormalNvim
 --- Get an icon from `lspkind` if it is available and return it.
----@param kind string The kind of icon in `lspkind` to retrieve.
----@return string icon.
+--- @param kind string The kind of icon in `lspkind` to retrieve.
+--- @return string icon.
 function M.get_icon(kind, padding, no_fallback)
   if not vim.g.icons_enabled and no_fallback then
     return ""

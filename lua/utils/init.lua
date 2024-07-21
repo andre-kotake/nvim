@@ -5,27 +5,6 @@ local LazyUtil = require("lazy.core.util")
 --- @field mason k_lazy.utils.mason
 local M = {}
 
--- local metatable = {
---   __call = function()
---     local self = {}
---
---     setmetatable(self, {
---       __index = function(t, k)
---         if LazyUtil[k] then
---           return LazyUtil[k]
---         end
---         ---@diagnostic disable-next-line: no-unknown
---         t[k] = require("utils." .. k)
---         return t[k]
---       end,
---     })
---
---     return self
---   end,
--- }
---
--- setmetatable(M, metatable)
-
 setmetatable(M, {
   __index = function(t, k)
     if LazyUtil[k] then
@@ -41,16 +20,18 @@ setmetatable(M, {
 --- @param plugin string The plugin to get options from
 --- @return table opts # The plugin options, or empty table if no plugin.
 function M.get_plugin_opts(plugin)
-  local lazy_config_avail, lazy_config = pcall(require, "config.lazy")
-  vim.print(lazy_config)
-  -- local lazy_plugin_avail, lazy_plugin = pcall(require, "lazy.core.plugin")
-  --  local opts = {}
-  --  if lazy_config_avail and lazy_plugin_avail then
-  --    local spec = lazy_config.spec.plugins[plugin]
-  --    if spec then
-  --      opts = lazy_plugin.values(spec, "opts")
-  --    end
-  --  end
+  local lazy_config_avail, lazy_config = pcall(require, "lazy.core.config")
+  local lazy_plugin_avail, lazy_plugin = pcall(require, "lazy.core.plugin")
+
+  local opts = {}
+
+  if lazy_config_avail and lazy_plugin_avail then
+    local spec = lazy_config.spec.plugins[plugin]
+    if spec then
+      opts = lazy_plugin.values(spec, "opts")
+    end
+  end
+
   return opts
 end
 
