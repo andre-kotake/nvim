@@ -22,7 +22,7 @@ return {
         -- highlight = _hl,
       },
       scope = {
-        char = "│",
+        char = "▎",
         highlight = _hl,
         show_start = true,
         show_end = true,
