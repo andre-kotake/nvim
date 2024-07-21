@@ -93,6 +93,7 @@ return {
             fallback()
           end
         end, { "i", "c" }),
+
         ["<S-Tab>"] = cmp.mapping(function(_)
           if cmp.visible() then
             cmp.select_prev_item({
@@ -102,13 +103,25 @@ return {
             cmp.complete()
           end
         end, { "i", "c" }),
+
         ["<CR>"] = cmp.mapping(function(fallback)
           if not cmp.confirm({ select = false }) then
             fallback()
           end
         end, { "i", "c" }),
+
         ["<C-e>"] = cmp.mapping(function(fallback)
           if not cmp.abort() then
+            fallback()
+          end
+        end, { "i", "c" }),
+
+        ["<C-d>"] = cmp.mapping(function(fallback)
+          if cmp.visible_docs() then
+            cmp.close_docs()
+          elseif cmp.visible() then
+            cmp.open_docs()
+          else
             fallback()
           end
         end, { "i", "c" }),
