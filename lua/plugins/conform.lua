@@ -17,14 +17,15 @@ return {
 
         yamlfix = {
           -- prepend_args = {
-          --   "--config-file",
-          --   K_Global.util.paths.config .. "yamlfix/config.toml",
+          -- "--config-file",
+          -- K_Global.path.config .. "yamlfix/config.toml",
           -- },
-          --  env = {
-          --    YAMLFIX_WHITELINES = "2",
-          --    YAMLFIX_SECTION_WHITELINES = "1",
-          --    YAMLFIX_SEQUENCE_STYLE = "block_style",
-          --  },
+          env = {
+            YAMLFIX_WHITELINES = "1",
+            YAMLFIX_SECTION_WHITELINES = "1",
+            YAMLFIX_COMMENTS_WHITELINES = "2",
+            YAMLFIX_SEQUENCE_STYLE = "block_style",
+          },
         },
       },
     },
