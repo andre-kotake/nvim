@@ -9,6 +9,9 @@ local M = {
     "shellharden",
     "shfmt",
 
+    "json-lsp",
+    "jsonlint",
+
     "yaml-language-server",
     "yamlfix",
     "yamllint",

@@ -209,6 +209,7 @@ return {
     opts = {
       linters_by_ft = {
         yaml = { "yamllint" },
+        json = { "jsonlint" },
       },
     },
   },
