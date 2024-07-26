@@ -18,7 +18,7 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     opts = {
       indent = {
-        -- char = ".",
+        char = ".",
         -- highlight = _hl,
       },
       scope = {

@@ -3,7 +3,7 @@ return {
   keys = {
     { "<leader>/", false },
     {
-      "<leader>fP",
+      "<leader>fC",
       function()
         require("telescope.builtin").find_files(require("telescope.themes").get_dropdown({
           cwd = require("lazy.core.config").options.root .. "/LazyVim",

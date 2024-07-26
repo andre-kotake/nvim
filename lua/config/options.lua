@@ -6,7 +6,7 @@ vim.opt.cmdheight = 0 -- Hide command line unless needed.
 vim.opt.colorcolumn = "80" -- PEP8 like character limit vertical bar.
 vim.opt.scrolloff = 1000 -- Number of lines to leave before/after the cursor when scrolling. Setting a high value keep the cursor centered.
 vim.o.guicursor =
-  "n-v:block,i-c-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
+  "n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 
 vim.opt.whichwrap:append("<>[]hl") -- go to previous/next line when cursor reaches end/beginning of line
 
