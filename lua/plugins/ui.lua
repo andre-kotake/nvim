@@ -83,10 +83,10 @@ return {
             win_options = {
               concealcursor = "n",
               conceallevel = 3,
-              -- winhighlight = {
-              --   Normal = "Normal",
-              --   FloatBorder = "DiagnosticInfo",
-              -- },
+              winhighlight = {
+                Normal = "Normal",
+                FloatBorder = "DiagnosticInfo",
+              },
             },
           },
         },

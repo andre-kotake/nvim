@@ -6,7 +6,7 @@ vim.opt.cmdheight = 0 -- Hide command line unless needed.
 
 -- vim.opt.cursorline = false
 -- TODO: Add custom color for visual selection and enable again LSP document highlight.
-vim.o.guicursor = "n-v-sm:block,i-c-ci-ve:ver25,r-cr:hor20,o:hor50,a:blnkwait700-blinkoff400-blinkon250-Cursor/lCursor"
+vim.o.guicursor = "n-v-sm:block,i-c-ci-ve:ver30,r-cr:hor20,o:hor50,a:blnkwait700-blinkoff400-blinkon250-Cursor/lCursor"
 
 vim.opt.whichwrap:append("<>[]hl") -- go to previous/next line when cursor reaches end/beginning of line
 
