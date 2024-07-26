@@ -93,7 +93,7 @@ return {
           else
             fallback()
           end
-        end, { "i", "c" }),
+        end, { "i" }),
 
         ["<S-Tab>"] = cmp.mapping(function(_)
           if cmp.visible() then
@@ -103,7 +103,7 @@ return {
           else
             cmp.complete()
           end
-        end, { "i", "c" }),
+        end, { "i" }),
 
         ["<CR>"] = cmp.mapping(function(fallback)
           if not cmp.confirm({ select = false }) then

@@ -4,6 +4,14 @@
 
 local M = {}
 
+local map = vim.keymap.set
+
+map("n", ";", ":", { desc = "Enter Command Mode", silent = false, noremap = true })
+
+map({ "i", "n" }, "<C-f>", function()
+  LazyVim.format({ force = true })
+end, { desc = "Format" })
+
 local utils = require("util")
 local maps = utils.get_mappings_template()
 
@@ -14,12 +22,12 @@ maps.n["<leader>xz"] = {
   desc = "Line Diagnostics",
 }
 
-maps.n[";"] = { ":", desc = "Enter Command Mode", silent = false }
+-- maps.n[";"] = { ":", desc = "Enter Command Mode", silent = false }
 
 maps.n["<leader>/"] = { "gcc", remap = true, desc = "Toggle comment line" }
 maps.x["<leader>/"] = { "gc", remap = true, desc = "Toggle comment" }
 
-vim.keymap.set("n", ";", ":", { desc = "Enter Command Mode" })
+-- vim.keymap.set("n", ";", ":", { desc = "Enter Command Mode" })
 
 utils.set_mappings(maps, {
   silent = true,

@@ -16,6 +16,7 @@ return {
       })
 
       add("git_config")
+      add("json5")
     end,
   },
 }
