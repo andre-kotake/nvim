@@ -16,6 +16,7 @@ return {
       })
 
       add("git_config")
+      add("gitcommit")
       add("json5")
     end,
   },
