@@ -12,9 +12,6 @@ end
 return {
   {
     "hrsh7th/nvim-cmp",
-    dependencies = {
-      { "petertriho/cmp-git", opts = {} },
-    },
     opts = function(_, opts)
       local cmp = require("cmp")
       local win_opt = {
@@ -28,8 +25,6 @@ return {
       opts.completion = {
         completeopt = "menu,menuone,noinsert,noselect",
       }
-
-      table.insert(opts.sources, { name = "git" })
 
       -- opts.matching = {
       --   disallow_fuzzy_matching = true,
