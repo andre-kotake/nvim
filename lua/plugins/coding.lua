@@ -1,3 +1,5 @@
+-- TODO: Fix layout of completion and documentation window.
+
 local has_words_before = function()
   if string.match(vim.fn.mode(), "^c") then
     return true
@@ -14,28 +16,25 @@ return {
       local cmp = require("cmp")
       local win_opt = {
         border = "single",
-        col_offset = 0,
-        side_padding = 2,
       }
       local doc_opt = {
-        col_offset = 0,
-        side_padding = 2,
-        winhighlight = "Normal:PopMenu,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+        border = "single",
+        -- winhighlight = "Normal:PopMenu,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
       }
+
       opts.completion = {
         completeopt = "menu,menuone,noinsert,noselect",
       }
 
-      opts.matching = {
-        -- Allow only prefix matching!
-        disallow_fuzzy_matching = true,
-        disallow_fullfuzzy_matching = true,
-        disallow_partial_fuzzy_matching = true,
-        disallow_partial_matching = true,
-        disallow_prefix_unmatching = true,
-      }
-
-      opts.preselect = "None"
+      -- opts.matching = {
+      --   disallow_fuzzy_matching = true,
+      --   disallow_fullfuzzy_matching = true,
+      --   disallow_partial_fuzzy_matching = false,
+      --   disallow_partial_matching = false,
+      --   disallow_prefix_unmatching = false,
+      -- }
+      --
+      -- opts.preselect = "None"
       opts.window = {
         completion = cmp.config.window.bordered(win_opt),
         documentation = cmp.config.window.bordered(doc_opt),

@@ -1,3 +1,12 @@
+-- return {
+--   "Mofiqul/dracula.nvim",
+--   lazy = false,
+--   priority = 1000,
+--   opts = {
+--     italic_comment = true,
+--   },
+-- }
+
 return {
   "maxmx03/dracula.nvim",
   lazy = false,
@@ -19,7 +28,7 @@ return {
       ["todo-comments.nvim"] = true,
       ["lazy.nvim"] = true,
       ["telescope.nvim"] = true,
-      ["noice.nvim"] = true,
+      ["noice.nvim"] = false,
       ["hop.nvim"] = true,
       ["mini.statusline"] = true,
       ["mini.tabline"] = true,
@@ -28,8 +37,3 @@ return {
     },
   },
 }
--- return {
---   "Mofiqul/dracula.nvim",
---   lazy = false,
---   priority = 1000,
--- }

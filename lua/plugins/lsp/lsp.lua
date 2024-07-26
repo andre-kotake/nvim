@@ -1,4 +1,7 @@
 local _border = { border = "single" }
+-- vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
+-- vim.cmd([[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#8be9fd]])
+-- vim.cmd([[autocmd! ColorScheme * highlight link FloatBorder DiagnosticInfo]])
 
 return {
   "neovim/nvim-lspconfig",
@@ -25,8 +28,10 @@ return {
         header = "",
         source = true,
       },
+      document_highlight = {
+        enabled = true,
+      },
     },
-
     servers = {
       lua_ls = {},
       bashls = { filetypes = { "sh", "bash" } },
@@ -80,22 +85,18 @@ return {
       },
     },
   },
-
+  setup = {
+    yamlls = function()
+      -- Neovim < 0.10 does not have dynamic registration for formatting
+      if vim.fn.has("nvim-0.10") == 0 then
+        LazyVim.lsp.on_attach(function(client, _)
+          client.server_capabilities.documentFormattingProvider = true
+        end, "yamlls")
+      end
+    end,
+  },
   init = function()
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, _border)
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, _border)
   end,
-
-  setup = {
-    setup = {
-      yamlls = function()
-        -- Neovim < 0.10 does not have dynamic registration for formatting
-        if vim.fn.has("nvim-0.10") == 0 then
-          LazyVim.lsp.on_attach(function(client, _)
-            client.server_capabilities.documentFormattingProvider = true
-          end, "yamlls")
-        end
-      end,
-    },
-  },
 }
