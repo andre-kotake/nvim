@@ -1,18 +1,24 @@
-local view_max_width = math.floor(vim.o.columns * 0.90)
+local max_width = math.floor(0.8 * vim.api.nvim_win_get_width(0))
 
-local function get_msg_show_find_patterns()
-  -- Message patterns to skip.
-  local find_patterns = {
+local function filter_msg_show_skip(patterns)
+  local find_patterns = vim.list_extend(patterns or {}, {
     "more line",
     "line less",
     "fewer lines",
     "clipboard: No provider.",
     "change; before",
-  }
+    "change; after",
+  })
 
-  return vim.tbl_map(function(pattern)
-    return { find = pattern }
-  end, find_patterns)
+  return {
+    filter = {
+      event = "msg_show",
+      any = vim.tbl_map(function(pattern)
+        return { find = pattern }
+      end, find_patterns),
+    },
+    opts = { skip = true },
+  }
 end
 
 return {
@@ -35,40 +41,95 @@ return {
   {
     "folke/noice.nvim",
     -- enabled = false,
+    keys = {
+      {
+        "<C-Down",
+        function()
+          if not require("noice.lsp").scroll(4) then
+            return "<C-Down>"
+          end
+        end,
+        silent = true,
+        desc = "Scroll Forward",
+        mode = { "i" },
+      },
+      {
+        "<C-Up>",
+        function()
+          if not require("noice.lsp").scroll(-4) then
+            return "<C-Up>"
+          end
+        end,
+        silent = true,
+        -- expr = true,
+        desc = "Scroll Backward",
+        mode = { "i" },
+      },
+    },
     opts = {
       presets = {
         lsp_doc_border = true,
       },
+
+      lsp = {
+        hover = {
+          silent = true,
+        },
+        signature = {
+          auto_open = { enabled = false },
+        },
+        documentation = {
+          opts = {
+            win_options = {
+              concealcursor = "n",
+              conceallevel = 3,
+              -- winhighlight = {
+              --   Normal = "Normal",
+              --   FloatBorder = "DiagnosticInfo",
+              -- },
+            },
+          },
+        },
+      },
+
       views = {
         cmdline_popup = {
-          size = {
-            width = "85%",
+          position = { col = "50%" },
+          size = { width = 60, height = "auto" },
+        },
+
+        popupmenu = {
+          relative = "editor",
+          position = { col = "50%" },
+          size = { width = 60, height = 10 },
+          border = {
+            style = "single",
+            padding = { 0, 1 },
           },
         },
-        cmdline_popupmenu = {
+
+        confirm = {
+          position = { col = "50%" },
           size = {
-            width = "85%",
+            max_width = max_width,
+            width = "auto",
+            height = "auto",
           },
         },
-        -- confirm = {
-        --   size = {
-        --     max_width = view_max_width,
-        --   },
-        -- },
+
         hover = {
+          border = {
+            style = "single",
+            padding = { 0, 1 },
+          },
           size = {
-            max_width = view_max_width,
+            max_width = max_width,
+            max_height = 15,
           },
         },
       },
       routes = {
-        {
-          filter = {
-            event = "msg_show",
-            any = get_msg_show_find_patterns(),
-          },
-          opts = { skip = true },
-        },
+        filter_msg_show_skip(),
         {
           filter = {
             event = "lsp",
@@ -88,7 +149,7 @@ return {
     "rcarriga/nvim-notify",
     opts = {
       timeout = 4000,
-      max_width = view_max_width,
+      max_width = max_width,
       render = "wrapped-compact",
     },
   },
