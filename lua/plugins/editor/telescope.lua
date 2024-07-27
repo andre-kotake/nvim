@@ -5,9 +5,17 @@ return {
     {
       "<leader>fC",
       function()
-        require("telescope.builtin").find_files(require("telescope.themes").get_dropdown({
+        local builtin = require("telescope.builtin")
+        builtin.find_files({
           cwd = require("lazy.core.config").options.root .. "/LazyVim",
-        }))
+        })
+        -- builtin.find_files(require("telescope.themes").get_dropdown({
+        --   cwd = require("lazy.core.config").options.root .. "/LazyVim",
+        --   layout_config = {
+        --     width = 0.9,
+        --     height = 0.9,
+        --   },
+        -- }))
       end,
       desc = "Find Plugin File",
     },
