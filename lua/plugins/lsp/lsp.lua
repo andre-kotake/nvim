@@ -35,6 +35,7 @@ return {
     servers = {
       lua_ls = {},
       bashls = { filetypes = { "sh", "bash" } },
+      taplo = {},
       jsonls = {
         -- lazy-load schemastore when needed
         on_new_config = function(new_config)

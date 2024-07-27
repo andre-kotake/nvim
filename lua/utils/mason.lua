@@ -3,6 +3,7 @@ local M = {
   ensure_installed = {
     "lua-language-server",
     "stylua",
+    "selene",
 
     "bash-language-server",
     "shellcheck",
@@ -11,6 +12,8 @@ local M = {
 
     "json-lsp",
     "jsonlint",
+
+    "taplo",
 
     "yaml-language-server",
     "yamlfix",
