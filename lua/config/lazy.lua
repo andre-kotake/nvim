@@ -11,7 +11,10 @@ _G.K_Lazy = require("utils")
 
 require("lazy").setup({
   spec = {
+    { "lambdalisue/vim-suda", lazy = false },
+
     -- add LazyVim and import its plugins
+
     {
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",

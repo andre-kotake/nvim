@@ -12,6 +12,14 @@ map({ "i", "n" }, "<C-f>", function()
   LazyVim.format({ force = true })
 end, { desc = "Format" })
 
+map({ "i", "n" }, "<C-f>", function()
+  LazyVim.format({ force = true })
+end, { desc = "Format" })
+
+map("n", "<leader>W", function()
+  vim.cmd("SudaWrite")
+end, { desc = "Save as sudo" })
+
 local utils = require("util")
 local maps = utils.get_mappings_template()
 
