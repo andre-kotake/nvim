@@ -36,4 +36,8 @@ return {
       ["mini.cursorword"] = true,
     },
   },
+  config = function(_, opts)
+    require("dracula").setup(opts)
+    vim.cmd([[autocmd! ColorScheme * highlight CursorLine guibg=#17151d]])
+  end,
 }
