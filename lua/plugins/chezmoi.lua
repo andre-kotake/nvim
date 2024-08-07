@@ -1,3 +1,9 @@
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function(event)
+    vim.print(event)
+  end,
+})
+
 local pick_chezmoi = function()
   if LazyVim.pick.picker.name == "telescope" then
     require("telescope").extensions.chezmoi.find_files()
@@ -36,7 +42,7 @@ return {
     -- highlighting for chezmoi files template files
     "alker0/chezmoi.vim",
     lazy = false,
-    enabled = false,
+    -- enabled = false,
     init = function()
       vim.g["chezmoi#use_tmp_buffer"] = true
       vim.g["chezmoi#source_dir_path"] = os.getenv("HOME") .. "/Repos/chezmoi"

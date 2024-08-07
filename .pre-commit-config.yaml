@@ -21,9 +21,6 @@ repos:
       - id: detect-private-key
         stages:
           - pre-commit
-      - id: no-commit-to-branch
-        stages:
-          - pre-commit
 
   - repo: https://github.com/JohnnyMorganz/StyLua
     rev: v0.20.0
